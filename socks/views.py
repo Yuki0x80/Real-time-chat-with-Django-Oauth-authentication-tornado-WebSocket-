@@ -30,8 +30,8 @@ import csv
 import os
 
 
-CONSUMER_KEY = 'TamBvJMLlSYXPYfzECLYigIJW'
-CONSUMER_SECRET = 'sJdMW9xW0H3YCU6S8HgZa5gWEdaqfxQeRYk65mgxuEsu1cH5ev'
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
 CALLBACK_URL = 'http://127.0.0.1:8000/get_callback/'
 
 
