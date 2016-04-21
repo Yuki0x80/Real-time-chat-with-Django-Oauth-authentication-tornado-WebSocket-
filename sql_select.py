@@ -14,7 +14,7 @@ color=("red", "blue")
 label = ["Positiv", "Negativ"]
 
 xingApi="https://lr.capio.jp/iminos/webapis/synana_k/1_1/"
-xingAccessKey="RGeTMEHcXPp8wjyz"
+xingAccessKey="Your KEY"
 
 class sql_time:
 	def __init__(self,data):
