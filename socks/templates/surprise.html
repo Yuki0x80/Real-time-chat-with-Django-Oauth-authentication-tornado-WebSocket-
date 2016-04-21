@@ -1,0 +1,32 @@
+<head>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/juniskw/django_tools/master/csrf_token_ajax.js"></script>
+</head>
+<body>
+    <h1>Let's Surprise!</h1>
+    <form id="surprise_fm" action="surprise/" method="post">
+        <input id="your_txt" type="text" name="your_txt">
+        <input id="surprise_btn" type="submit">
+    </form>
+    <p id="test"></p>
+</body>
+<script>
+
+$(document).ready(function() {
+    $('#surprise_fm').submit(function() {  // ボタンクリックでAJAX
+        $.ajax({
+            'url':$('form#surprise_fm').attr('action'),
+            'type':'POST',
+            'data':{
+                'your_txt':$('#your_txt').val(),
+            },
+            'dataType':'json',
+            'success':function(response){  // 通信が成功したら動く処理で、引数には返ってきたレスポンスが入る
+                alert(response.your_surprise_txt);  // レスポンスからデータを取り出してアラート
+                document.getElementById("test").innerHTML=response.your_surprise_txt;
+            },
+        });
+        return false;
+    });
+});
+</script>

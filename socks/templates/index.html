@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Sample Page</title>
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript">
+        <!--
+        var socket;
+        var count=1;
+        function init(){
+            socket = new WebSocket("ws://localhost:8080/");
+            socket.onopen = function(e){
+                alert("open websocket!");
+            }
+            socket.onmessage = function(e){
+                var p = document.getElementById("msg");
+                p.innerHTML = "送られたメッセージ：" + e.data;
+                $('#test').after('<div id="'+count+'">'+ e.data +'<br>'+'------------------------------------------'+'<br>'+'</div>');
+                count++;
+
+            }
+            socket.onerror = function(e){
+                alert("error!!");
+            }
+            socket.onclose = function(e){
+                alert("close websocket.");
+            }
+        }
+        function action(){
+            var str = document.getElementById("text1").value;
+            socket.send(str);
+            $.ajax({
+                    'url':"/surprise/",
+                    'type':'POST',
+                    'data':{
+                        'msg':str,
+                    },
+                    'dataType':'json',
+                    //'success':function(response){
+                      //  alert("HEY");
+                        //alert(response.your_surprise_txt);
+                        //document.getElementById("test").innerHTML=response.your_surprise_txt;
+                });
+            }
+         
+        init();
+        //-->
+
+        </script>
+    </head>
+    <body>
+        <h4><a href="/logout">logout</a></h4>
+        <h1>サンプル</h1>
+        {{ logged_users }}
+        <p id="msg">message...</p>
+        <input type="text" id="text1">
+        <input type="button" onclick="action();" value="send">
+        <div id="test"></div>
+    </body>
+</html>

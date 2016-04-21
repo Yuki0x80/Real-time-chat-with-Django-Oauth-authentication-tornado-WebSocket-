@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Django Chat Demo</title>
+    <meta name="" content="width=device-width, initial-scale=1.0">
+    <!--<link href="/static/mainpage/css/main.css" rel="stylesheet" type="text/css"/>-->
+  </head>
+  <body onload="exchanged()">
+    {% block body %}
+    <h1>succesfully logged out of chat</h1>
+    {% endblock body %}
+  </body>
+  <script type="text/javascript">
+  function exchanged(){
+    setTimeout("Jumppage()",1300);
+  }
+
+  function Jumppage(){
+    location.href="http://127.0.0.1:8000/"
+  }
+  </script>
+</html>
